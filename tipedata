@@ -1,0 +1,87 @@
+package KPsesuaiprosedur;
+import java.util.*;
+public class tipedata {
+    public static void main(String[] args){
+       //MENGALIHKAN 1 per 1 method
+       tugas1();
+       tugas2();
+       tugas3();
+       tugas4();
+    }
+    private static void tugas1(){
+        System.out.println("TUGAS 1");
+        int i = 37,  j = 42;
+        double x = 27.475, y = 7.22;
+        
+        System.out.println(" ___JAWABAN___ ");
+        System.out.println("  Menampilkan Values...");
+        System.out.println(" i = " + i + "\n j = " + j);
+        System.out.println(" x = " + x + "\n y = " + y);
+        System.out.println(" Adding : ");
+        System.out.println(" i + j = " + (i + j));
+        System.out.println(" x + y = " + (x + y));
+        System.out.println(" Substracting : ");
+        System.out.println(" i + j = " + (i - j));
+        System.out.println(" x + y = " + (x - y));
+        System.out.println(" Multiplying : ");
+        System.out.println(" i + j = " + (i * j));
+        System.out.println(" x + y = " + (x * y));
+        System.out.println(" Divisioning : ");
+        System.out.println(" i + j = " + (i / j));
+        System.out.println(" x + y = " + (x / y));
+        System.out.println(" Moduling : ");
+        System.out.println(" i + j = " + (i % j));
+        System.out.println(" x + y = " + (x % y));
+    }
+    private static void tugas2(){
+        System.out.println("\n\nTUGAS 2");
+        int number = 10;
+        char letter = 'a';
+        boolean result = true;
+        String str = "hello";
+        
+        System.out.println(" ___JAWABAN___ ");
+        System.out.print(" - number = " + number);
+        System.out.print(" - letter = " + letter);
+        System.out.print(" - result = " + result);
+        System.out.print(" - str = " + str);
+    }
+    private static void tugas3(){
+        System.out.println("\n\nTUGAS 3");
+        int jam, menit, detik, hasil;
+        final int kedetik1 = 3600, kedetik2 = 60;
+        Scanner input = new Scanner (System.in);
+        
+        System.out.println(" ___JAWABAN___ ");
+        System.out.print("INPUTKAN JAM :");
+        jam=input.nextInt();
+        System.out.print("INPUTKAN MENIT :");
+        menit=input.nextInt();
+        System.out.print("INPUTKAN DETIK :");
+        detik=input.nextInt();
+        
+        hasil = (jam * kedetik1) + (menit * kedetik2) + detik;
+        System.out.print("HASILNYA Adalah : " + hasil);
+    }
+    private static void tugas4(){
+        System.out.println("\n\nTUGAS 4");
+        int t, v;
+        Scanner input = new Scanner (System.in);
+        
+        System.out.println(" ___JAWABAN___ ");
+        System.out.print("INPUTKAN WAKTU YANG DIBUTUHKAN (PER JAM):");
+        v=input.nextInt();
+        System.out.print("INPUTKAN KECEPATAN (TETAP) :");
+        t=input.nextInt();
+        System.out.println("Maka Jaraknya (s) Adalah = " +  (v*t) + " km");
+    }
+} 
+/*
+    NOTE :
+        1. \n dapat digunakan untuk membuat line baru dalam suatu output
+        2. pengimputan dibutuhkan utility java yaitu Scanner
+        3. penulisan import dapat diakhiri dengan tanda bintang untuk mengimputkan 
+           semua hal yang termasuk kedalamnya, contohnya :
+
+           import java.util.*; 
+*/
