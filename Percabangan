@@ -1,0 +1,304 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Percabangan;
+import java.util.*;
+
+public class Percabangan {
+    public static void main(String[] args){
+        tugas1();
+        tugas2();
+        tugas3();
+        tugas4a();
+        tugas4b();
+    }
+    private static void tugas1(){
+        /*
+        TUGAS 1
+            Karyawan PT “ABC” digaji berdasarkan jumlah jam kerjanya selama
+            satu minggu. Upah per jam adalah Rp 2.000. Bila jumlah jam kerja lebih
+            besar dari 48 jam, maka sisanya dianggap sebagai upah lembur. Upah
+            lembur adalah Rp3.000/jam. Tulislah program yang membaca jumlah jam
+            kerja karyawan selama seminggu lalu menentukan upah mingguannya. 
+        */
+        Scanner input = new Scanner(System.in);
+        int  upahperminggu, jamkerja, upahlembur1, upahjamkerja, jamlembur, maks1minggu;
+        final int upahperjam, upahlembur,  jamkerjamax;
+        String inp;
+        upahperjam = 2000;
+        upahlembur = 3000;
+        jamkerjamax = 48;
+        System.out.print("INPUTKAN NILAI :");
+                maks1minggu = input.nextInt();
+                if (maks1minggu >168){
+                    System.out.println("MAAF ANDA TELAH MELEWATI WAKTU 168 JAM (1 MINGGU)");
+                    tugas1();
+                }
+                else if (maks1minggu <=168 && maks1minggu > 0){
+                    jamkerja = maks1minggu;
+                    if (jamkerja > 48){
+                        jamlembur = jamkerja - jamkerjamax;
+                        upahlembur1 = jamlembur * upahlembur;
+                        upahjamkerja = (jamkerja - jamlembur) * upahperjam;
+                        upahperminggu = upahlembur1 + upahjamkerja;
+                        System.out.println("=======================NOTA=========================");
+                        System.out.println("        PENJELAS        |  JAM KERJA  |    UPAH    |");
+                        System.out.println("___________________________________________________+");
+                        System.out.println("TOTAL JAM LEMBUR        |     " + jamlembur  + "     |  " + upahlembur1 + "  |");
+                        System.out.println("TOTAL JAM KERJA         |     " +(jamkerja - jamlembur) + "     |     "+ upahjamkerja + "  |");
+                        System.out.println("___________________________________________________+");
+                        System.out.println("TOTAL                   |    " +jamkerja + "      |    " +upahperminggu + "  |");
+                    }
+                    else if (jamkerja <48 && jamkerja >0){
+                        jamlembur = jamkerja - jamkerjamax;
+                        upahlembur1 = jamlembur * upahlembur;
+                        upahjamkerja = (jamkerja - jamlembur) * upahperjam;
+                        upahperminggu = upahlembur1 + upahjamkerja;
+                        System.out.println("=======================NOTA=========================");
+                        System.out.println("        PENJELAS        |  JAM KERJA  |    UPAH    |");
+                        System.out.println("___________________________________________________+");
+                        System.out.println("TOTAL JAM LEMBUR        |     " + jamlembur  + "     |  " + upahlembur1 + "  |");
+                        System.out.println("TOTAL JAM KERJA         |     " +(jamkerja - jamlembur) + "     |     "+ upahjamkerja + "  |");
+                        System.out.println("___________________________________________________+");
+                        System.out.println("TOTAL                   |    " +jamkerja + "      |    " +upahperminggu + "  |");
+                    }
+                    else if (jamkerja <0){
+                        System.out.println("GAJI TIDAK DAPAT DIKELUARKAN!");
+                        tugas1();
+                    }
+                    else {
+                        System.out.println("INPUT SALAH");
+                        tugas1();
+                    }
+                }
+                else {
+                   System.out.println("INPUT SALAH");
+                   tugas1(); 
+                }
+    }
+    private static void tugas2(){
+        /*
+    TUGAS 2
+        Diketahui bahwa cuaca dikatakan panas apabila temperatur 30°C,
+        normal apabila 24°C, dingin apabila temperatur dari 20°C. Buatlah
+        program yang membaca niai temperatur kemudian menampilkan kata
+        “Panas”, “Dingin”, atau “Normal” berdasarkan kondisi temperatur
+        (Gunakan switch case).
+
+    */
+       boolean flag = false;
+       int suhu; 
+       Scanner temp = new Scanner(System.in);
+       System.out.print("Masukkan temperatur :");
+       do{
+            try {
+                suhu = temp.nextInt();
+                System.out.println();
+                switch (suhu){
+                    case 30 :
+                        System.out.println("CUACA SAAT INI PANAS");
+                        break;
+                    case 24 :
+                        System.out.println("CUACA SAAT INI NORMAL");
+                        break;
+                    case 20 :
+                        System.out.println("CUACA SAAT INI DINGIN");
+                        break;
+                    default :
+                        if(suhu > 30){
+                            System.out.println("CUACA SAAT INI SANGAT PANAS");
+                        }
+                        else if (suhu >24 && suhu <30){
+                            System.out.println("CUACA SAAT INI NORMAL");
+                        }
+                        else {
+                            System.out.println("CUACA SAAT INI SANGAT DINGIN");
+                        }
+                        break;
+                        }
+                    }
+                    catch(InputMismatchException exception){
+                        System.out.println("HANYA INTEGER SAJA YANG DIPERBOLEHKAN!");
+                        tugas2recovery();
+                        break;
+
+                    }
+                }
+                while (flag);
+       
+    }
+    private static void tugas2recovery(){
+        tugas2();
+    }
+    private static void tugas3(){
+    /*
+      TUGAS 3:  
+        Buatlah algoritma untuk menghitung gaji bersih pegawai. Masukan
+        adalah nama dan golongan pegawai. Jika Golongan A maka Gaji Pokok
+        400 rb, B 500 rb, C 750 rb dan D 900 rb. Tunjangan 30% dari Gaji Pokok,
+        Pajak 5% dari Gaji Pokok ditambah Tunjangan. Gaji Bersih = Gaji Pokok +
+        Tunjangan - Pajak.
+ 
+    */
+        String nama, golongan;
+        final int a = 400000, b = 500000, c = 750000, d = 900000;
+        double Tunjangan = 0.3 , pajak = 0.05, gaji;
+        int gajibersih;
+        String input;
+        Scanner inp = new Scanner (System.in);
+        
+        System.out.print("MASUKKAN NAMA : ");
+                nama=inp.nextLine();
+                nama = nama.toUpperCase();
+
+                System.out.print("MASUKKAN GOLONGAN ( A - D ) : ");
+                golongan=inp.nextLine();
+                System.out.println("\n\nPLEASE WAIT...\n\n");
+                switch (golongan){
+                    case "A": case "a":
+                        gaji = a + (a*Tunjangan) - (a*pajak);
+                        gajibersih = (int) gaji;
+                        System.out.println("HALO " + nama);
+                        System.out.println("GAJI ANDA = Rp" + gajibersih);
+                        break;
+
+                    case "B": case "b": 
+                        gaji = b + (b*Tunjangan) - (b*pajak);
+                        gajibersih = (int) gaji;
+                        System.out.println("HALO " + nama);
+                        System.out.println("GAJI ANDA = Rp" + gajibersih);
+                        break;
+
+                    case "C": case "c": 
+                        gaji = c + (c*Tunjangan) - (c*pajak);
+                        gajibersih = (int) gaji;
+                        System.out.println("HALO " + nama);
+                        System.out.println("GAJI ANDA = Rp" + gajibersih);
+                        break;
+
+                    case "D": case "d": 
+                        gaji = d + (d*Tunjangan) - (d*pajak);
+                        gajibersih = (int) gaji;
+                        System.out.println("HALO " + nama);
+                        System.out.println("GAJI ANDA = Rp" + gajibersih);
+                        break;
+
+                    default:
+                        System.out.println("HALO " + nama);
+                        System.out.println("GOLONGAN TIDAK DIKETAHUI, SILAHKAN INPUT ULANG!\n\n");
+                        tugas3();
+                        break;
+                }
+    }
+    private static void tugas4a(){
+    /*
+     TUGAS 4:
+        Tulislah algoritma untuk menentukan bilangan terbesar dari jika
+            a. Membaca 2 bilangan (Gunakan ternary operator dan if - else)
+    */
+        int x, y, max;
+        Scanner inp = new Scanner (System.in);
+        System.out.print("MASUKKAN NILAI PERTAMA : ");
+        x=inp.nextInt();
+        System.out.print("MASUKKAN NILAI KEDUA : ");
+        y=inp.nextInt();
+        
+        max = (x > y) ? x : y;
+        
+        if (max == x) {
+            System.out.println("NILAI YANG TERBESAR ADALAH : " + x );
+            System.out.println("NILAI YANG TERKECIL ADALAH : " + y );
+        }
+        else{
+            System.out.println("NILAI YANG TERBESAR ADALAH : " + y );
+            System.out.println("NILAI YANG TERKECIL ADALAH : " + x );
+        }
+    }
+    private static void tugas4b(){
+    /*
+     TUGAS 4:
+        Tulislah algoritma untuk menentukan bilangan terbesar dari jika
+            b.Membaca 3 bilangan
+    */
+        int x, y, z,  max;
+        Scanner inp = new Scanner (System.in);
+       
+        System.out.print("MASUKKAN NILAI PERTAMA : ");
+        x=inp.nextInt();
+        System.out.print("MASUKKAN NILAI KEDUA : ");
+        y=inp.nextInt();
+        System.out.print("MASUKKAN NILAI KETIGA : ");
+        z=inp.nextInt();
+        
+        if (x == y){
+            if ( y > z){
+                System.out.println("NILAI YANG TERBESAR ADALAH NILAI VARIABEL X DAN Y DENGAN NILAI : " + y );
+                System.out.println("NILAI YANG TERKECIL ADALAH : " + z);
+            }
+            else {
+                System.out.println("NILAI YANG TERBESAR ADALAH : " + z);
+                System.out.println("NILAI YANG TERKECIL ADALAH NILAI VARIABEL X DAN Y DENGAN NILAI : " + y );
+            }
+        }
+        else if ( y ==  z ){
+            if ( z > x){
+                System.out.println("NILAI YANG TERBESAR ADALAH NILAI VARIABEL X DAN Y DENGAN NILAI : " + y );
+                System.out.println("NILAI YANG TERKECIL ADALAH : " + x);
+            }
+            else {
+                System.out.println("NILAI YANG TERBESAR ADALAH : " + x);
+                System.out.println("NILAI YANG TERKECIL ADALAH NILAI VARIABEL X DAN Y DENGAN NILAI : " + y );
+            }
+        }
+        else if (x == z){
+            if ( z > y){
+                System.out.println("NILAI YANG TERBESAR ADALAH NILAI VARIABEL X DAN Y DENGAN NILAI : " + x );
+                System.out.println("NILAI YANG TERKECIL ADALAH : " + y);
+            }
+                    else {
+                        System.out.println("NILAI YANG TERBESAR ADALAH : " + y);
+                        System.out.println("NILAI YANG TERKECIL ADALAH NILAI VARIABEL X DAN Y DENGAN NILAI : " + x );
+                    }
+        }
+        else if (x != y & y != z & x != z){
+            max = (x > y) ? x : y;
+            max = (y > z) ? y : z;
+            if (max == x & y > z) {
+                System.out.println("NILAI YANG TERBESAR ADALAH : " + x );
+                System.out.println("NILAI YANG KEDUA ADALAH : " + z );
+                System.out.println("NILAI YANG TERKECIL ADALAH : " + y );
+                }
+            else if (max == x & y < z ){
+                System.out.println("NILAI YANG TERBESAR ADALAH : " + x );
+                System.out.println("NILAI YANG KEDUA ADALAH : " + y );
+                System.out.println("NILAI YANG TERKECIL ADALAH : " + z );
+            }
+            else if (max == y & x > z) {
+                System.out.println("NILAI YANG TERBESAR ADALAH : " + y );
+                System.out.println("NILAI YANG KEDUA ADALAH : " + x );
+                System.out.println("NILAI YANG TERKECIL ADALAH : " + z );
+            }
+            else if (max == y  & x < z) {
+                System.out.println("NILAI YANG TERBESAR ADALAH : " + y );
+                System.out.println("NILAI YANG KEDUA ADALAH : " + z );
+                System.out.println("NILAI YANG TERKECIL ADALAH : " + x );
+            }
+            else if (max == z & y > x ){
+                System.out.println("NILAI YANG TERBESAR ADALAH : " + z );
+                System.out.println("NILAI YANG KEDUA ADALAH : " + y );
+                System.out.println("NILAI YANG TERKECIL ADALAH : " + x );
+            }
+            else if (max == z & y < x){
+                System.out.println("NILAI YANG TERBESAR ADALAH : " + z );
+                System.out.println("NILAI YANG KEDUA ADALAH : " + x );
+                System.out.println("NILAI YANG TERKECIL ADALAH : " + y );
+            }
+            else {
+                System.out.println("INPUT SALAH" );
+                tugas4b();
+            }
+        }
+    }
+}
