@@ -1,0 +1,89 @@
+package method;
+import javax.swing.*;
+
+public class Method {
+
+    public static void main(String[] args) {
+        System.out.println("_____________________________________________\n\n");
+        math();
+        System.out.println("\n\n_____________________________________________\n\n");
+        pemanggilan();
+        System.out.println("\n\n_____________________________________________\n\n");
+        pemanggilantanpanilai();
+        System.out.println("\n\n_____________________________________________\n\n");
+        parameteraktual();
+        System.out.println("\n\n_____________________________________________\n\n");
+        overloading();
+        System.out.println("\n\n_____________________________________________\n\n");
+        
+    }
+    private static void math (){
+        double a1,a2;
+        String hasil="";
+        String x=JOptionPane.showInputDialog("Input Angka 1 = ");
+        String y=JOptionPane.showInputDialog("Input Angka 2 = ");
+        a1=Double.parseDouble(x); a2=Double.parseDouble(y);
+        hasil+="x = "+a1+"\ny 2 = "+a2;
+        hasil+="\nKuadrat dari x = "+Math.sqrt(a1);
+        hasil+="\nNilai absolut y = "+Math.abs(a2);
+        hasil+="\nNilai terbesar = "+Math.max(a1,a2);
+        hasil+="\n"+a1+" ^ "+a2+" = "+Math.pow(a1,a2);
+        JOptionPane.showMessageDialog(null,hasil,"Contoh Java API",JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    private static void pemanggilan(){
+        int a = 11;
+        int b = 6;
+        int c = fungsiMinimum(a, b);
+        JOptionPane.showMessageDialog(null,"Nilai Minimum = "+c);
+    }
+    public static int fungsiMinimum(int n1, int n2) {
+        int min;
+        if (n1 > n2)
+        min = n2;
+        else
+        min = n1;
+        return min;
+    }
+    
+    private static void pemanggilantanpanilai(){
+        methodRankPoints(255.7);
+    }
+    public static void methodRankPoints(double points) {
+        if (points >= 202.5)
+            JOptionPane.showMessageDialog(null,"Rank:A1");
+        else if (points >= 122.4)
+            JOptionPane.showMessageDialog(null,"Rank:A2");
+        else
+            JOptionPane.showMessageDialog(null,"Rank:A3");
+    }
+    
+    private static void parameteraktual(){
+        int a = 30;
+        int b = 45;
+        System.out.println("Before swapping, a = "+a+" and b = "+b);
+        // Invoke the swap method
+        swapFunction(a, b);
+        System.out.println("\n**Now, Before and After swapping values will besame here**:");
+        System.out.println("After swapping, a = "+a+" and b is "+b);
+    }
+    public static void swapFunction(int a, int b) {
+        System.out.println("Before swapping(Inside), a = "+a+" b = "+b);
+        // Swap n1 with n2
+        int c = a;
+        a = b;
+        b = c;
+        System.out.println("After swapping(Inside), a = "+a+ " b = "+b);
+    }
+    
+    private static void overloading(){
+      JOptionPane.showMessageDialog(null,"The square of integer 7 is "+square(7)
+              +"\nThe square of double 7.5 is "+square(7.5));
+    }
+    public static int square(int intValue){
+        return intValue * intValue;
+    }
+    public static double square(double doubleValue){
+        return doubleValue * doubleValue;
+    }
+}
