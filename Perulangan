@@ -46,7 +46,7 @@ public class Perulangan {
             System.out.println("Bilangan Akhir Genap, Maka nilai N akan menjadi " +(b-1));
         }
         for(int i = 1; i <= b; i += 2){
-            System.out.print( i + " ");
+            System.out.print( i + "\n\n\n\n");
         }
     }
     private static void tugas4(){
@@ -86,6 +86,7 @@ public class Perulangan {
                 tugas4();
                 break;
         }
+        System.out.println("\n\n\n\n");
         
     }
     private static void tugas5(){
