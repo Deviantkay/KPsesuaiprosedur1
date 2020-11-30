@@ -1,0 +1,115 @@
+package perulangan;
+import java.util.*;
+public class Perulangan {
+
+    public static void main(String[] args) {
+        tugas1();
+        tugas2();
+        tugas3();
+        tugas4();
+        tugas5();
+    } 
+    private static void tugas1(){
+        int array[], i, n;
+        array = new int[999];
+        float rata2, total=0;
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Masukkan banyaknya elemen array: ");
+        n = scan.nextInt();
+        for(i = 1; i <= n; i++){
+          System.out.print("Nilai Ke-"+ i +" Adalah : ");
+          array[i] = scan.nextInt();
+          total = total + array[i];
+        }
+        rata2 = total/n;
+        System.out.println("Hasil nilai total adalah : " + total);
+        System.out.println("Hasil rata-rata adalah : " + rata2 + "\n\n\n\n");
+    }
+    private static void tugas2(){
+        long faktorial = 1;
+        Scanner in = new Scanner (System.in);
+        System.out.print("Masukkan nilai N Faktorial: ");
+        int n = in.nextInt();
+
+        for(int i = 1; i<=n; i++){
+            faktorial = i * faktorial;
+        }
+        System.out.println("Faktorial "+n+" adalah "+faktorial +"\n\n\n\n");
+    }
+    private static void tugas3(){
+        Scanner a = new Scanner (System.in);
+        int b , c;
+        System.out.print("Masukkan nilai N yang akan menjadi ujung nilai: ");
+        b = a.nextInt();
+        c = b % 2;
+        if (c == 0){
+            System.out.println("Bilangan Akhir Genap, Maka nilai N akan menjadi " +(b-1));
+        }
+        for(int i = 1; i <= b; i += 2){
+            System.out.print( i + " ");
+        }
+    }
+    private static void tugas4(){
+        int x, y, a, b, i = 1 , q = 1;
+        long c;
+        Scanner z = new Scanner (System.in);
+        System.out.print("Masukkan nilai Dasar: ");
+        x = z.nextInt();
+        System.out.print("Masukkan nilai Pangkat dan jumlah perulangan: ");
+        y = z.nextInt();
+        System.out.print("Masukkan Pilihan apakah menggunakan Syntax: \n"
+                + "1. Math.pow \n"
+                + "2. loop While \n"
+                + "3. loop For \n"
+                + "PILIHAN : ");
+        b = z.nextInt();
+        switch (b) {
+            case 1:
+                a = (int) Math.pow(x,y);
+                System.out.println(a);
+                break;
+            case 2:
+                while (i <= y){
+                    q = q * x;
+                    i++;
+                }
+                System.out.println(q);
+                break;
+            case 3:
+                for (i = 1; i <= y; i++){
+                    q = q * x;
+                }
+                System.out.println(q);
+                break;
+            default:
+                System.out.print("Input Salah");
+                tugas4();
+                break;
+        }
+        
+    }
+    private static void tugas5(){
+        int jumlah = 1, total = 0, total1 = 0;
+        double harga = 0;
+        Scanner jmlh = new Scanner(System.in);
+        
+        do{
+            System.out.print("Masukkan Jumlah Barang : ");
+            jumlah = jmlh.nextInt();
+            if (jumlah == 0){
+                tampil(total, total1);
+            }
+            System.out.print(" Masukkan Harga Barang : ");
+            harga = jmlh.nextDouble();
+            total += harga;
+            total1 += harga * jumlah;
+            
+        }
+        while (jumlah != 0);
+    }
+    static void tampil(int total , int total1){
+        System.out.println("TIDAK ADA BARANG YANG MASUK!");
+        System.out.println("JUMLAH TOTAL HARGA YANG HARUS DIBAYARKAN : Rp" +total1);
+        System.exit(0);
+    }
+}
