@@ -6,6 +6,7 @@ public class Perulangan {
         tugas1();
         tugas2();
         tugas3();
+        System.out.println("\n\n\n\n");
         tugas4();
         tugas5();
     } 
@@ -88,8 +89,6 @@ public class Perulangan {
                 tugas4();
                 break;
         }
-        System.out.println("\n\n\n\n");
-        
     }
     private static void tugas5(){
         int jumlah = 1, total = 0, total1 = 0;
